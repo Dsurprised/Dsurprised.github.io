@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-09-21T08:30:02.498Z</updated>
+  <updated>2022-09-21T08:39:13.187Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -20,8 +20,8 @@
     <title>Hello World</title>
     <link href="http://example.com/posts/4a17b156.html"/>
     <id>http://example.com/posts/4a17b156.html</id>
-    <published>2022-09-21T08:30:02.498Z</published>
-    <updated>2022-09-21T08:30:02.498Z</updated>
+    <published>2022-09-21T08:39:13.187Z</published>
+    <updated>2022-09-21T08:39:13.187Z</updated>
     
     <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
     
@@ -45,7 +45,7 @@
     <link href="http://example.com/posts/d597c8d0.html"/>
     <id>http://example.com/posts/d597c8d0.html</id>
     <published>2022-09-18T11:48:35.000Z</published>
-    <updated>2022-09-21T08:30:02.498Z</updated>
+    <updated>2022-09-21T08:39:13.187Z</updated>
     
     <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h4 id="1-请描述docker和k8s的关系"><a href="#1-请描述docker和k8s的关系" class="headerlink" title="1.请描述docker和k8s的关系"></a>1.请描述docker和k8s的关系</h4><p>docker容器编排</p><ul><li>手动规划</li><li>不能保证负载平衡</li><li>网络不好处理</li><li>不能故障转移</li><li>反向代理得手动处理</li></ul><p>k8s能完美解决</p><ul><li><p>容器自动资源负载均衡，由k8s自动计算，该放在哪个node节点</p></li><li><p>网络自动分配，每个pod的根容器和所有的容器是同一网络（Container网络模式），而每个pod也是同一网段，方便管理</p></li><li><p>故障自动转移，Controller Manager始终保持用户想要的副本数的pod在运行，缺少就会自动重启</p></li><li><p>自动反向代理，NodeIP (物理主机的节点IP) 和PodIP中有一层IP，叫CluterIP，他能自动感应后面的PodIP，并将流量自动负载均衡到后面的Pod</p></li></ul><h4 id="2-为什么要使用k8s，k8s可以实现哪些功能"><a href="#2-为什么要使用k8s，k8s可以实现哪些功能" class="headerlink" title="2.为什么要使用k8s，k8s可以实现哪些功能"></a>2.为什么要使用k8s，k8s可以实现哪些功能</h4><p>在生产环境中，你需要管理运行服务的容器，并确保不会停机。 如果一个容器发生故障，则需要启动另一个容器。</p><p>K8S 能提供的功能有：</p><ul><li><strong>服务发现和负载均衡</strong>：只需要告诉k8s需要多少个服务的pod，就会自动启动多少个pod，并自动资源负载均衡；当node节点资源分配不平衡，就会自动从其他node节点将pod迁移过来，达到资源负载均衡并平均分配网络流量</li><li><strong>存储编排</strong>：允许你自动挂载你选择的存储系统，例如本地存储、公共云提供商等</li><li><strong>自动部署和回滚</strong>：以前有多少个容器，就要停止启动这么多次，现在使用k8s，只需要告诉他，我要多少个服务的pod，什么版本的，就会自动部署和回滚</li><li><strong>自动完成装箱计算</strong>：自动计算每个节点的资源，自动计算这个容器该放在哪个节点</li><li><strong>自我修复</strong>：K8s 自动杀死未响应的容器，自动重启容器</li></ul><h4 id="3-K8s组件有哪些？并且简述每个组件的作用？"><a href="#3-K8s组件有哪些？并且简述每个组件的作用？" class="headerlink" title="3.K8s组件有哪些？并且简述每个组件的作用？"></a>3.K8s组件有哪些？并且简述每个组件的作用？</h4><h4 id="Master节点组件"><a href="#Master节点组件" class="headerlink" title="Master节点组件"></a>Master节点组件</h4><ol><li><strong>ETCD数据库</strong>：所有K8S的数据和节点、容器状态都存储在ETCD里</li><li><strong>API Server</strong>：只有他能和ETCD进行数据交互，通过提供各个API接口，让各个组件连接、通讯并管理，达到对整个K8S集群的管理</li><li><strong>Controller Manager</strong>：始终保持用户想要的副本数的pod在运行</li><li><strong>Scheduler</strong>：计算各节点的资源，分析哪个节点最适合运行这个pod并调度到相应节点</li><li><strong>Kubectl</strong>：通过Kubectl命令对API Server进行操作，相当于管理k8s集群</li></ol><h4 id="Node节点组件"><a href="#Node节点组件" class="headerlink" title="Node节点组件"></a>Node节点组件</h4><ol><li><strong>Kubelet</strong>：监听并接收API Serve分配的创建pod任务，并吩咐Docker创建相应服务的容器；定时将自己节点的信息，上所有pod和的信息上传给API Server</li><li><strong>Docker</strong>：按照Kubulet吩咐的任务，创建指定pod，包括（根容器和相应服务的容器）</li><li><strong>kube-proxy</strong>：监听并接收API Serve分配的创建网络任务</li></ol><h4 id="4-什么是POD-POD和容器的关系是什么"><a href="#4-什么是POD-POD和容器的关系是什么" class="headerlink" title="4.什么是POD,POD和容器的关系是什么"></a>4.什么是POD,POD和容器的关系是什么</h4><p>pod是k8s的最小单位，每个pod都有一个根容器，每个pod由一个或多个容器组成</p><p>pod内的ip地址是随机的，删除pod会改变ip</p><p>pod内的容器共享根容器的网络和文件系统</p><h4 id="5-简述K8s创建Pod流程"><a href="#5-简述K8s创建Pod流程" class="headerlink" title="5.简述K8s创建Pod流程?"></a>5.简述K8s创建Pod流程?</h4><ol><li><p>通过kubectl向apiserver发送创建pod指令</p></li><li><p>apiserver接收并写入etcd</p></li><li><p>etcd写入成功后向apiserver上报创建pod事件</p></li><li><p>apiserver将创建pod事件暴露在api接口</p></li><li><p>scheduler监听api相关接口，收到新建pod的信息，检索所有符合该要求的node列表，进行调度算法，选择合适的节点并绑定，再将信息返回给apiserver</p></li><li><p>apiserver将scheduler返回的信息写入etcd</p></li><li><p>etcd更新数据后将信息上报apiserver</p></li><li><p>apiserver将新建pod信息和绑定的node节点暴露在api接口</p></li><li><p>kublet监听api相关接口，接收调度到本节点的pod任务，指挥本节点的docker创相应的容器</p></li><li><p>pod创建成功，kubelet将pod信息传递给apiserver</p></li><li><p>apiserver将pod创建完成信息写入etcd</p></li></ol>]]></content>
     
@@ -67,7 +67,7 @@
     <link href="http://example.com/posts/3bf4a27.html"/>
     <id>http://example.com/posts/3bf4a27.html</id>
     <published>2022-09-17T11:48:35.000Z</published>
-    <updated>2022-09-21T08:30:02.498Z</updated>
+    <updated>2022-09-21T08:39:13.187Z</updated>
     
     <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
     
